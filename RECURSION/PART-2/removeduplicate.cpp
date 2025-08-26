@@ -1,0 +1,26 @@
+// REMOVE DUPLICAT6E FROM AN STRING
+#include<iostream>
+using namespace std;
+void removeDuplicate(string str,string ans,int i,int map[26]){
+    if(i==str.size()){
+        cout<<"ans is:"<<ans<<endl;
+        return ;
+    }
+    char ch = str[i];
+    int Idx = int(ch-'a');
+    if(map[Idx]){
+        removeDuplicate(str,ans,i+1,map);
+    }
+    else{
+        map[Idx] = true;
+        removeDuplicate(str,ans+str[i],i+1,map);
+    }
+}
+int main(){
+    string str = "nevergiveupharsh";
+    string ans;
+    int map[26] = {false};
+    removeDuplicate(str,ans,0,map);
+    return 0;
+}
+
