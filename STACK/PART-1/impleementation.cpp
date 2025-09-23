@@ -1,40 +1,42 @@
 // STACK IMPLEENTATION USING VECTOR
 #include<iostream>
+#include<stack>
 #include<vector>
 using namespace std;
-class Stack{
-    vector<int> v1;
+class Stack {
+    vector<int>v;
     public:
     void push(int val){
-       v1.push_back(val);
+       v.push_back(val);
     }
     void pop(){
         if(isEmpty()){
-            cout<<"satck is empty"<<endl;
-            return;
+            cout<<"stack is empty"<<endl;
+            return ;
         }
-        v1.pop_back();
+        v.pop_back();
     }
     int top(){
         if(isEmpty()){
-            cout<<"satck is empty"<<endl;
+            cout<<"stack is empty"<<endl;
             return -1;
         }
-        int lastIdx = v1.size()-1;
-        return v1[lastIdx];
+        int lastIdx = v.size()-1;
+        return v[lastIdx];
     }
     bool isEmpty(){
-        return v1.size()==0;
+        return v.size()==0;
     }
 };
+
 int main(){
     Stack s;
     s.push(3);
     s.push(2);
     s.push(1);
     while(!s.isEmpty()){
-         cout<<s.top()<<" ";
-         s.pop();
+        cout<<s.top()<<endl;
+        s.pop();
     }
     return 0;
 }
